@@ -77,6 +77,8 @@
   },
   "dependencies": {
     "@flowx-finance/swap-widget": "^1.15.0",
-    "@mysten/dapp-kit": "^1.0.4"
+    "@mysten/dapp-kit": "^1.0.4",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0"
   }
 }

@@ -407,6 +407,12 @@ importers:
       '@mysten/dapp-kit':
         specifier: ^1.0.4
         version: 1.0.4(@mysten/sui@2.9.1(typescript@5.9.3))(@tanstack/react-query@5.90.21(react@19.1.0))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)(use-sync-external-store@1.6.0(react@19.1.0))
+      buffer:
+        specifier: ^6.0.3
+        version: 6.0.3
+      events:
+        specifier: ^3.3.0
+        version: 3.3.0
     devDependencies:
       '@hookform/resolvers':
         specifier: ^3.10.0
@@ -2124,6 +2130,9 @@ packages:
 
   buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
+
+  buffer@6.0.3:
+    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
 
   builtin-status-codes@3.0.0:
     resolution: {integrity: sha512-HpGFw18DgFWlncDfjTa2rcQ4W88O1mC8e8yZ2AvQY5KDaktSTwo+KRf6nHK6FRI5FyRyb/5T6+TSxfP7QyGsmQ==}
@@ -6161,6 +6170,11 @@ snapshots:
   buffer-xor@1.0.3: {}
 
   buffer@5.7.1:
+    dependencies:
+      base64-js: 1.5.1
+      ieee754: 1.2.1
+
+  buffer@6.0.3:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1

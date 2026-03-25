@@ -55,7 +55,10 @@ export default defineConfig({
     global: "globalThis",
   },
   optimizeDeps: {
-    include: ["@flowx-finance/swap-widget", "@mysten/dapp-kit"],
+    include: [
+      "buffer",
+      "events",
+    ],
     esbuildOptions: {
       define: {
         global: "globalThis",
