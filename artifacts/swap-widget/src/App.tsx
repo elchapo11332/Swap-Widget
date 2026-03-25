@@ -5,7 +5,7 @@ import "@flowx-finance/swap-widget/index.esm.css";
 const config = {
   commission: {
     partner: '0x0b5fa8eabf48e68b8441b439f1fcb582602b6669a8cf8bbf86bddcd55a869add',
-    valueType: 'PERCENTAGE',
+    valueType: 0,
     value: (0.5 / 100) * 1e6,
     strategy: 'OUTPUT',
     directTransfer: false,
