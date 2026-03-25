@@ -269,6 +269,11 @@
 
 }
 
+/* Hide Replit badge */
+#replit-badge-container {
+  display: none !important;
+}
+
 /* Replace FlowX logo with Suidex logo inside the widget header */
 .flx_swap_header > *:not(.flx_right) {
   display: none !important;
