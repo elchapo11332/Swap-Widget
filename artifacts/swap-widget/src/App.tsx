@@ -44,10 +44,10 @@ function BubbleBackground() {
           id: i,
           logo: logoArr[i % logoArr.length],
           x: Math.random() * 100,
-          size: 36 + Math.random() * 36,
-          duration: 14 + Math.random() * 20,
-          delay: Math.random() * 18,
-          opacity: 0.15 + Math.random() * 0.3,
+          size: 36 + Math.random() * 40,
+          duration: 12 + Math.random() * 18,
+          delay: Math.random() * 15,
+          opacity: 0.25 + Math.random() * 0.35,
         }));
         setBubbles(generated);
       } catch (e) {
@@ -72,10 +72,9 @@ function BubbleBackground() {
             width: `${b.size}px`,
             height: `${b.size}px`,
             borderRadius: "50%",
-            opacity: b.opacity,
             animation: `floatUp ${b.duration}s ${b.delay}s infinite linear`,
             objectFit: "cover",
-            filter: "blur(0.3px)",
+            ["--bubble-opacity" as any]: b.opacity,
           }}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
@@ -85,9 +84,9 @@ function BubbleBackground() {
       <style>{`
         @keyframes floatUp {
           0%   { transform: translateY(0) scale(1); opacity: 0; }
-          5%   { opacity: var(--op, 0.25); }
-          90%  { opacity: var(--op, 0.25); }
-          100% { transform: translateY(-110vh) scale(0.8); opacity: 0; }
+          8%   { opacity: var(--bubble-opacity, 0.3); }
+          88%  { opacity: var(--bubble-opacity, 0.3); }
+          100% { transform: translateY(-110vh) scale(0.85); opacity: 0; }
         }
       `}</style>
     </div>
@@ -120,22 +119,8 @@ export default function App() {
           </div>
         </div>
 
-        {/* Widget with logo override */}
-        <div className="relative">
-          <SwapWidget key={widgetKey} config={config} />
-          {/* Overlay to replace FlowX logo with Suidex logo */}
-          <div
-            className="absolute pointer-events-none"
-            style={{ top: "16px", left: "16px", width: "36px", height: "36px", zIndex: 50 }}
-          >
-            <img
-              src={suidexLogo}
-              alt="Suidex"
-              className="w-full h-full rounded-full"
-              style={{ background: "#0f172a" }}
-            />
-          </div>
-        </div>
+        {/* Swap widget */}
+        <SwapWidget key={widgetKey} config={config} />
 
         <button
           onClick={handleRefresh}

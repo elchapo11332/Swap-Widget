@@ -269,6 +269,21 @@
 
 }
 
+/* Replace FlowX logo with Suidex logo inside the widget header */
+.flx_swap_header > *:not(.flx_right) {
+  display: none !important;
+}
+
+.flx_swap_header::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: url('/suidex-logo.png') center / cover no-repeat;
+  border-radius: 50%;
+}
+
 @layer base {
   * {
     @apply border-border;
