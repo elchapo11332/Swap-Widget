@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const projectRoot = path.resolve(__dirname, "../..");
 const port = Number(process.env.PORT) || 5173;
 const basePath = process.env.BASE_PATH || "/";
 
@@ -33,13 +34,13 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      "@assets": path.resolve(__dirname, "..", "..", "attached_assets"),
+      "@assets": path.resolve(projectRoot, "attached_assets"),
     },
     dedupe: ["react", "react-dom"],
   },
-  root: path.resolve(__dirname),
+  root: projectRoot,
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(projectRoot, "dist"),
     emptyOutDir: true,
   },
   server: {
@@ -48,7 +49,7 @@ export default defineConfig({
     allowedHosts: true,
     fs: {
       strict: false,
-      allow: ["../.."],
+      allow: [projectRoot, __dirname],
     },
   },
   preview: {
