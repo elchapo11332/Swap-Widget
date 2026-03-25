@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "FlowX Swap Widget"
+version = "1.0.0"
+id = "artifacts/swap-widget"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24330
+
+[services.development]
+run = "pnpm --filter @workspace/swap-widget run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/swap-widget", "run", "build" ]
+publicDir = "artifacts/swap-widget/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24330"
+BASE_PATH = "/"
